@@ -31,8 +31,8 @@ pearson_residuals_logit
 ggplot(fakedata, aes(x = LFitted, y = pearson_residuals_logit)) +
   geom_point(color = "blue") +                 # Scatter plot of residuals
   geom_hline(yintercept = 0, color = "black", linetype = "dashed") +  # Horizontal line at 0
-  ggtitle("Pearson Residuals vs. Predicted Probability") +
-  xlab("Predicted Probability") + 
+  ggtitle("Logit Pearson Residuals vs. Predicted") +
+  xlab("Predicted") + 
   ylab("Pearson Residuals") +
   theme_minimal()
 
@@ -52,7 +52,7 @@ pearson_residuals_probit
 ggplot(fakedata, aes(x = Fitted, y = pearson_residuals_probit)) +
   geom_point(color = "blue") +                 # Scatter plot of residuals
   geom_hline(yintercept = 0, color = "black", linetype = "dashed") +  # Horizontal line at 0
-  ggtitle("Pearson Residuals vs. Predicted Probability") +
-  xlab("Predicted Probability") + 
+  ggtitle("Probit Pearson Residuals vs. Predicted") +
+  xlab("Predicted") + 
   ylab("Pearson Residuals") +
   theme_minimal()
