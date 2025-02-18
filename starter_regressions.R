@@ -24,16 +24,16 @@ logit_residuals <- residuals(mylogit)
 logit_residuals
 
 #pearson residuals
+LFitted <- fitted(mylogit)
 pearson_residuals_logit <- residuals(mylogit, type = "pearson")
 pearson_residuals_logit
 
 #plotted pearson residuals
-ggplot(fakedata, aes(x = LFitted, y = pearson_residuals_logit)) +
-  geom_point(color = "blue") +                 # Scatter plot of residuals
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed") +  # Horizontal line at 0
-  ggtitle("Logit Pearson Residuals vs. Predicted") +
-  xlab("Predicted") + 
-  ylab("Pearson Residuals") +
+ggplot(fakedata, aes(x = 1:249, y = pearson_residuals_logit)) +
+  geom_point(color = "blue") +  # Scatter plot of residuals
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +  # Horizontal line at y = 0
+  labs(title = "Pearson Residuals from Logit Model",
+       x = "Observations", y = "Pearson Residuals") +
   theme_minimal()
 
 #probit with same variables 
@@ -41,6 +41,7 @@ myprobit <- glm(`Coup` ~ `GDP_per_Capita` + `Military_Expenditure_%_GDP` + `Medi
 summary(myprobit)
 
 #residuals
+Fitted <- fitted(myprobit)
 probit_residuals <- residuals(myprobit)
 probit_residuals
 
@@ -49,10 +50,9 @@ pearson_residuals_probit <- residuals(myprobit, type = "pearson")
 pearson_residuals_probit
 
 #plotting pearson residuals
-ggplot(fakedata, aes(x = Fitted, y = pearson_residuals_probit)) +
-  geom_point(color = "blue") +                 # Scatter plot of residuals
-  geom_hline(yintercept = 0, color = "black", linetype = "dashed") +  # Horizontal line at 0
-  ggtitle("Probit Pearson Residuals vs. Predicted") +
-  xlab("Predicted") + 
-  ylab("Pearson Residuals") +
+ggplot(fakedata, aes(x = 1:249, y = pearson_residuals_probit)) +
+  geom_point(color = "blue") +  # Scatter plot of residuals
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +  # Horizontal line at y = 0
+  labs(title = "Pearson Residuals from Probit Model",
+       x = "Observations", y = "Pearson Residuals") +
   theme_minimal()
