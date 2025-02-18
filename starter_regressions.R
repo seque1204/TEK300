@@ -24,7 +24,7 @@ logit_residuals <- residuals(mylogit)
 logit_residuals
 
 #pearson residuals
-pearson_residuals_logit <- residuals(logit_model, type = "pearson")
+pearson_residuals_logit <- residuals(mylogit, type = "pearson")
 pearson_residuals_logit
 
 #probit with same variables 
@@ -36,5 +36,5 @@ probit_residuals <- residuals(myprobit)
 probit_residuals
 
 #pearson residuals (preferred)
-pearson_residuals_probit <- residuals(probit_model, type = "pearson")
+pearson_residuals_probit <- residuals(myprobit, type = "pearson")
 pearson_residuals_probit
